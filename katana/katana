@@ -1,0 +1,10 @@
+#!/bin/bash
+exe=$0
+abspath=`readlink -e $exe`
+path=`dirname $abspath`
+LD_LIBRARY_PATH=$path
+export LD_LIBRARY_PATH
+$path/ld-linux.so.2 ${abspath}_real
+echo $PWD
+echo $0
+
